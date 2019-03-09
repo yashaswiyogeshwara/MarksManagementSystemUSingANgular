@@ -1,0 +1,5 @@
+
+<button class="addstudentbutton" (click)="OpenFileDialog()">
+  Add Student
+</button>
+<input #fileDialog type="file" id="myfile" style="display: none" (change)="FileSelect($event)"> 

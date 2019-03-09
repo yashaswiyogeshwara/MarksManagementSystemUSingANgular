@@ -1,0 +1,51 @@
+
+<div class="background-style">
+           
+  <div >
+      
+      <div class="title">
+          MAHATMA GANDHI INSTITUTE OF TECHNOLOGY 
+              </div>
+      <div class="subtitle">
+          DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING
+    (Affiliated to Jawaharlal Nehru Technological University Hyderabad) 
+           GANDIPET, HYDERABAD – 500 075. Telangana (INDIA)
+
+           
+      </div>
+        <img src="assets/image/officalLogocopy.jpg" > 
+       
+       
+  </div>
+  
+        
+ 
+  <div class="form-style-10"  >
+  <h1>Log In</h1>
+    <form [formGroup]="employeeForm"  (ngSubmit)="onSubmit()" class="form-horizontal">   
+      <div class="section"></div>
+       <div class="inner-wrap">
+           <label> Name<br> <input type="text" formControlName="UserName" name="UserName" /></label><br>
+           <label>Password <br> <input type="password" formControlName="Password" name="Password" /></label>
+      </div>   
+        <div class="button-section" >
+           <button type="submit" class="buttonClass">Login</button> 
+           
+           <div class="Signup-section" routerLink="/Signup"  >
+            Signup 
+           </div>
+          </div>
+<div *ngIf="ErrorMessage">
+  <p style="color:red">{{ErrorMessage}}</p>
+</div>
+      </form>
+  </div>
+
+  <div  class="logingif">
+    <img src="assets/image/webPage.gif" >
+</div>
+  <div class="fotter">
+
+  </div>
+
+</div>
