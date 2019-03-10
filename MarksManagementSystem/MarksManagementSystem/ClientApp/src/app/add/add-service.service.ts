@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -17,12 +17,12 @@ const httpOptions = {
 export class AddServiceService {
   Url: string = "https://localhost:44365/api/exceldata/AddStudents"
 
-  constructor(public http : HttpClient) { }
+  constructor(public http: HttpClient, @Inject('BASE_URL') public baseUrl: string) { }
   AddStudents(fileToUpload: File):Observable<any>{
     debugger;
   const _formData = new FormData();
   _formData.append('_file', fileToUpload, fileToUpload.name);
-  return this.http.post(this.Url, _formData);
+    return this.http.post(this.baseUrl + 'api/ExcelData/AddStudents', _formData);
     //return this.http.post(this.Url,path , httpOptions);
   }
 }

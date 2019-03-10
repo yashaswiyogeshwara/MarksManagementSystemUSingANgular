@@ -1,33 +1,48 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { NgModule, Component } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+
+import { LoginModule } from './login/login.module';
+import {SignUpModule} from './sign-up/sign-up.module';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginPageComponent } from './login/login-page/login-page.component';
+import { SignUpPageComponent } from './sign-up/sign-up-page/sign-up-page.component';
+import{DashboardModule} from'./dashboard/dashboard.module';
+import{AddModule} from'./add/add.module';
+import { DashboardComponentComponent } from './dashboard/dashboard-component/dashboard-component.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { from } from 'rxjs';
+import { AddStudentComponent } from './add/add-student/add-student.component';
+import { AddMarksComponent } from './add/add-marks/add-marks.component';
+
+
+
+
+const routes: Routes = [
+  { path: '', component:LoginPageComponent },
+  {path:'Signup',component:SignUpPageComponent},
+  {path:'Dashboard',component:DashboardComponentComponent},
+  {path:'AddStudent',component:AddStudentComponent},
+  {path:'AddMarks',component:AddMarksComponent},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    AppRoutingModule,
+    LoginModule,
     HttpClientModule,
-    FormsModule,  
-    RouterModule.forRoot([
-
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ])
+    SignUpModule,
+    DashboardModule ,
+    AddModule,
+    [ RouterModule.forRoot(routes), BrowserAnimationsModule],
   ],
   providers: [],
   bootstrap: [AppComponent]
