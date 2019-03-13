@@ -1,3 +1,21 @@
-<p>
-  add-marks works!
-</p>
+
+<div>
+  <img src="assets/image/Dashboard.jpeg">
+  <div class="addMarkstext">Add Marks </div>
+
+
+  <button class="addMarkstbutton" (click)="OpenFileDialog()">
+
+    Add Marks
+
+
+  </button>
+  <input #fileDialog type="file" id="myfile" style="display: none" (change)="FileSelect($event)">
+
+
+  <div class="MarksExcelFormat">
+    <img src="assets/image/MarksExcelFormat.png">
+  </div>
+
+
+</div>

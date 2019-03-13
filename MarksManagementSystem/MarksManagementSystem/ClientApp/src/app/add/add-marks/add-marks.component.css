@@ -1,0 +1,27 @@
+.addMarkstext {
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  font-size: 60px;
+  color: white;
+  font-family: Courier New Lucida Console;
+}
+
+.addMarkstbutton {
+  position: absolute;
+  height: 80px;
+  width: 150px;
+  top: 700px;
+  left: 650px;
+  background: rgb(20, 173, 243);
+  font-size: 25px;
+  color: white;
+  border-radius: 15px;
+}
+
+.MarksExcelFormat {
+  position: absolute;
+  top: 150px;
+  left: 450px;
+  height: 450px;
+}

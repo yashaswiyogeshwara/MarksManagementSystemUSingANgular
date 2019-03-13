@@ -10,6 +10,10 @@ namespace MarksManagementSystem.DAL
     public class DataContext : DbContext
     {
         public DbSet<Student> Students { get; set; }
+        public DbSet<Subject> Subject { get; set; }
+        public DbSet<Marks> Marks { get; set; }
+
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
             //this.Database.Migrate();

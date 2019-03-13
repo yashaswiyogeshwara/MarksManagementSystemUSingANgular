@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{A3020CA2-AF69-466B-867F-A6B596A842CC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/Controllers/MarksExcelData.cs">
+    <Files>
+      <File FileName="MarksManagementSystem/Controllers/ExcelDataController.cs" Line="105" Column="64" />
+      <File FileName="MarksManagementSystem/Controllers/MarksExcelData.cs" Line="121" Column="48" />
+      <File FileName="MarksManagementSystem/Controllers/ValuesController.cs" Line="34" Column="60" />
+      <File FileName="MarksManagementSystem/DAL/DataContext.cs" Line="14" Column="25" />
+      <File FileName="MarksManagementSystem/Models/Marks.cs" Line="14" Column="30" />
+      <File FileName="MarksManagementSystem/Models/Student.cs" Line="14" Column="47" />
+      <File FileName="MarksManagementSystem/Models/Subject.cs" Line="5" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.MarksManagementSystem PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="32" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="42" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="41" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="40" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/ExcelDataController.cs" relfile="MarksManagementSystem/Controllers/ExcelDataController.cs" line="32" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="142" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="127" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="131" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="120" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="124" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="93" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="96" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="98" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="100" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="112" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="104" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="107" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

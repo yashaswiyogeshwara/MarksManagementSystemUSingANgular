@@ -15,8 +15,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AddServiceService {
-  Url: string = "https://localhost:44365/api/exceldata/AddStudents"
-
+ 
   constructor(public http: HttpClient, @Inject('BASE_URL') public baseUrl: string) { }
   AddStudents(fileToUpload: File):Observable<any>{
     debugger;
@@ -24,5 +23,14 @@ export class AddServiceService {
   _formData.append('_file', fileToUpload, fileToUpload.name);
     return this.http.post(this.baseUrl + 'api/ExcelData/AddStudents', _formData);
     //return this.http.post(this.Url,path , httpOptions);
-  }
 }
+     AddMarks(fileToUpload: File):Observable<any>{
+    debugger;
+  const _formData = new FormData();
+  _formData.append('_file', fileToUpload, fileToUpload.name);
+    return this.http.post(this.baseUrl + 'api/MarksExcelData/AddMarks', _formData);
+    //return this.http.post(this.Url,path , httpOptions);
+    }
+}
+
+    
