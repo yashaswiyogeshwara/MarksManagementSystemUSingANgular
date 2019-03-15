@@ -1,13 +1,11 @@
 ﻿<Properties StartupConfiguration="{A3020CA2-AF69-466B-867F-A6B596A842CC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/Controllers/MarksExcelData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/ClientApp/src/app/app.module.ts">
     <Files>
       <File FileName="MarksManagementSystem/Controllers/ExcelDataController.cs" Line="105" Column="64" />
-      <File FileName="MarksManagementSystem/Controllers/MarksExcelData.cs" Line="121" Column="48" />
-      <File FileName="MarksManagementSystem/Controllers/ValuesController.cs" Line="34" Column="60" />
-      <File FileName="MarksManagementSystem/DAL/DataContext.cs" Line="14" Column="25" />
-      <File FileName="MarksManagementSystem/Models/Marks.cs" Line="14" Column="30" />
-      <File FileName="MarksManagementSystem/Models/Student.cs" Line="14" Column="47" />
-      <File FileName="MarksManagementSystem/Models/Subject.cs" Line="5" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/app.module.ts" Line="26" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/class/class.module.ts" Line="1" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/dashboard/dashboard.module.ts" Line="1" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/dashboard/dashboard-component/dashboard-component.component.html" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -28,10 +26,10 @@
       <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="93" column="1" />
       <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="96" column="1" />
       <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="98" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="100" column="1" />
       <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="112" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="104" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="107" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="100" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="102" column="1" />
+      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="105" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

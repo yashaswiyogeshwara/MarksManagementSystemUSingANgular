@@ -1,0 +1,40 @@
+
+<form [formGroup]="StudentForm">  
+Hallticket Number  <input type="text" formControlName="HallticketNumber" name="HallticketNumber">
+<br>
+<button (click)="SendHallticket()">Submit</button>
+</form>
+
+<table>
+    <tr> 
+   <th>S.no</th>
+   <th>SubjectName</th>
+   <th>SubjectCode</th>
+   <th>Grade</th>
+   <th>GradePoint</th>
+    </tr>
+  
+    <tr *ngFor="let StudentData of Student" (click)="onSelect(StudentData)"> 
+    <td> {{StudentData.Sno}}</td>  
+    <td> {{StudentData.SubjectName}}</td>  
+    <td> {{StudentData.SubjectCode}} </td>  
+    <td> {{StudentData.Grade}}</td>  
+    <td> {{StudentData.GradePoint}}</td>     
+  </tr>
+
+
+
+</table>
+
+
+<div *ngIf="SelectStudent">
+ 
+    <h2>{{SelectStudent.Sno | uppercase}} Details</h2>
+    <div><span>id: </span>{{SelectStudent.Sno}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="SelectStudent.SubjectName" placeholder="name"/>
+      </label>
+    </div>
+   
+  </div>

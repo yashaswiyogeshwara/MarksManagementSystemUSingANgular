@@ -17,9 +17,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { AddStudentComponent } from './add/add-student/add-student.component';
 import { AddMarksComponent } from './add/add-marks/add-marks.component';
-
-
-
+import{StudentProfileModule} from './student-profile/student-profile.module';
+import{StudentProfileComponent} from'./student-profile/student-profile/student-profile.component';
+import{ClassModule} from './class/class.module';
+import{ClassComponent} from'./class/class.component';
+import{DepartmentModule} from './department/department.module';
+import {DepartmentComponentComponent} from './department/department-component/department-component.component'
 
 const routes: Routes = [
   { path: '', component:LoginPageComponent },
@@ -27,12 +30,17 @@ const routes: Routes = [
   {path:'Dashboard',component:DashboardComponentComponent},
   {path:'AddStudent',component:AddStudentComponent},
   {path:'AddMarks',component:AddMarksComponent},
+  {path:'StudemtProfile',component:StudentProfileComponent},
+  {path:'Class',component:ClassComponent},
+    {path:'Department',component:DepartmentComponentComponent}
+
+  
+  
 ];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -42,6 +50,9 @@ const routes: Routes = [
     SignUpModule,
     DashboardModule ,
     AddModule,
+    StudentProfileModule,
+    ClassModule,
+    DepartmentModule,
     [ RouterModule.forRoot(routes), BrowserAnimationsModule],
   ],
   providers: [],
