@@ -23,6 +23,7 @@ import{ClassModule} from './class/class.module';
 import{ClassComponent} from'./class/class.component';
 import{DepartmentModule} from './department/department.module';
 import {DepartmentComponentComponent} from './department/department-component/department-component.component'
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
   { path: '', component:LoginPageComponent },
@@ -53,6 +54,7 @@ const routes: Routes = [
     StudentProfileModule,
     ClassModule,
     DepartmentModule,
+    MatTableModule,
     [ RouterModule.forRoot(routes), BrowserAnimationsModule],
   ],
   providers: [],
