@@ -27,14 +27,14 @@ namespace MarksManagementSystem.Controllers
             _context = context;
         }
 
-
+        // 
         [HttpPost("AddMarks")]
         public async Task<IActionResult> Upload(List<IFormFile> _file)
         {
             try
-            { int tempstuid = 0, tempsubid = 0;
-               // String tempsubcode = "";
-               Marks marks = new Marks();
+            {   
+                List<MarksExcel> excelMarksList = new List<MarksExcel>();
+                Marks marks = new Marks();
                 Student student = new Student();
                 Subject subject = new Subject();
                 IFormFile file = Request.Form.Files[0];
@@ -81,67 +81,61 @@ namespace MarksManagementSystem.Controllers
                         {
                             for (int i = (sheet.FirstRowNum + 1); i <= sheet.LastRowNum; i++) //Read Excel File
                             {
-                                 
+                                //Hallticket No	Subject Code	Subject Name	Grade	Grade Points			
                                 IRow row = sheet.GetRow(i);
-                                if (row == null || row.Cells.All(d => d.CellType == CellType.Blank))
-                                {
-                                    throw new Exception(string.Format("Null row presnet in excel at row number , {0} ", i.ToString()));
-                                };
-                               
-                                   
-                                    Type type = typeof(Student);
-                                    int NumberOfRecordsOfStudent = type.GetProperties().Length;
+                                string Hallticket = row.GetCell(0).StringCellValue;
+                                string SubjectCode = row.GetCell(1).StringCellValue;
+                                string SubjectName = row.GetCell(2).StringCellValue;
+                                string Grade = row.GetCell(3).StringCellValue;
+                                int GradePoints = (int)(row.GetCell(4).NumericCellValue);
+                                excelMarksList.Add(new MarksExcel() {
+                                    Hallticket = row.GetCell(0).StringCellValue,
+                                    SubjectCode = row.GetCell(1).StringCellValue,
+                                    SubjectName = row.GetCell(2).StringCellValue,
+                                    Grade = row.GetCell(3).StringCellValue,
+                                    GradePoints = (int)(row.GetCell(4).NumericCellValue)
+                                }); 
 
-                                    Type types = typeof(Subject);
-                                    int NumberOfRecordsOfsubject = types.GetProperties().Length;
-
-                                    for (int k=0;k< NumberOfRecordsOfStudent; k++)
-                                    {
-                                        for (int m = 0; m < NumberOfRecordsOfsubject; m++)
-                                        {
-                                            if (row.ElementAt(0).Equals(student.Hallticket))
-                                                {
-                                                 tempstuid = student.Id;
-                                                if (row.ElementAt(2).Equals(subject.Name))
-                                                    {
-                                                     tempsubid = subject.Id;
-                                                   // tempsubcode = subject.Code;
-                                                   }
-
-                                                 }
-                                            for (int j = row.FirstCellNum; j < cellCount; j++)
-                                            {
-                                                ICell cell = row.Cells.First(x => x.RowIndex == i && x.ColumnIndex == j);
-
-                                                switch (j)
-                                                {
-                                                    case 0:
-
-                                                        marks.StuId = tempstuid;
-                                                        break;
-
-                                                    case 2:
-                                                        marks.SubId = tempsubid;
-
-                                                        break;
-                                                    case 3:
-                                                        marks.Grade = cell.StringCellValue;
-
-                                                        break;
-                                                    case 4:
-                                                        marks.GradePoint = Convert.ToInt32(cell.NumericCellValue);
-                                                        break;
-                                                }
-                                            }
-                                        }
-
-                                    }
-
-
-                                
-                                _context.Marks.Add(marks);
-                                //sb.AppendLine("</tr>");
                             }
+
+                            /*
+                              public int Id { get; set; }
+                              public int SubjectId { get; set; }
+                              public int StudentId { get; set; }
+                              public int StandardId { get; set; }
+                              public string Grade { get; set; }
+                              public int GradePoint { get; set; }
+                             */
+
+                            List<Marks> marksList = (from temp in excelMarksList
+                                                     join stu in _context.Students
+                                                     on temp.Hallticket equals stu.Hallticket
+                                                     join sub in _context.Subject on temp.SubjectCode equals sub.Code
+                                                     join std in _context.Standard on sub.StandardId equals std.Id
+                                                     select new Marks
+                                                     {
+                                                         SubjectId = sub.Id,
+                                                         StudentId = stu.Id,
+                                                         StandardId = std.Id,
+                                                         Grade = temp.Grade,
+                                                         GradePoint = temp.GradePoints
+                                                     }).ToList<Marks>();
+
+                            List<Marks> dbMarksList = (from m in _context.Marks
+                                                       select m).ToList<Marks>();
+                            marksList.ForEach(mrk =>
+                            {
+                                Marks record = dbMarksList.Where(m => m.StudentId == mrk.StudentId && m.SubjectId == mrk.SubjectId).FirstOrDefault();
+                                if (record != null)
+                                {
+                                    record.Grade = mrk.Grade;
+                                    record.GradePoint = mrk.GradePoint;
+                                    _context.Marks.Update(record);
+                                }
+                                else {
+                                    _context.Marks.Add(mrk);
+                                }
+                            });
                            _context.SaveChanges();
 
                         }

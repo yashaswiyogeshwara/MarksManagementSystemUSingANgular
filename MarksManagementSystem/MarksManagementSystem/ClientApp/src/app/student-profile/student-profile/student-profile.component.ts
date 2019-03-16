@@ -5,7 +5,6 @@ import {student} from'../MockStudentData';
 import { StudentData } from 'src/app/Models/StudentData';
 
 
-
 @Component({
   selector: 'app-student-profile',
   templateUrl: './student-profile.component.html',
@@ -13,9 +12,10 @@ import { StudentData } from 'src/app/Models/StudentData';
 })
 export class StudentProfileComponent implements OnInit {
   StudentForm:FormGroup;
-  Student: StudentData[];
   constructor(public studentServicesService :StudentServicesService) { }
-  displayedColumns: string[] = ['Sno', 'SubjectName', 'SubjectCode', 'Grade','GradePoint'];
+  //StudentData=student;
+  Student = student;
+  SelectStudent:StudentData;
   ngOnInit() {
     this.StudentForm=new FormGroup({
       HallticketNumber:new FormControl,
@@ -24,7 +24,10 @@ export class StudentProfileComponent implements OnInit {
   }
   public  SendHallticket():void{
     console.log(this.StudentForm.value);
-    this.Student = student;
+    
+    
   }
- 
+  onSelect(hero: StudentData): void {
+    this.SelectStudent = hero;
+  }
 }

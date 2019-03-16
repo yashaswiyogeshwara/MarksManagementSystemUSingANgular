@@ -7,14 +7,10 @@ namespace MarksManagementSystem.Models
         {
         }
         public int Id { get; set; }
-        public int SubId { get; set; }
-        public int StuId { get; set; }
-        public int PassedId { get; set; }
+        public int SubjectId { get; set; }
+        public int StudentId { get; set; }
+        public int StandardId { get; set; }
         public string Grade { get; set; }
         public int GradePoint { get; set; }
-
-
-
-
     }
 }
