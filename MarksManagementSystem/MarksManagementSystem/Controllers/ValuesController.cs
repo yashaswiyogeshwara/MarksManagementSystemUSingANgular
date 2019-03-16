@@ -24,20 +24,46 @@ namespace MarksManagementSystem.Controllers
         }
         // GET api/values
         [HttpGet("GetStudents")]
-        public List<Student> Get()
+        public StudentProfile Get(string hallTicketNo)
         {
-            List<Student> studentList = new List<Student>();
+            StudentProfile studentProfile = new StudentProfile();
             // var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
             // optionsBuilder.UseMySQL("server=localhost;port=3306;userid=root;pwd=Rajeev_97;database=testDb;sslmode=none;");
             using (DataContext dbcontext = context)
             {
-                studentList = (from s in dbcontext.Students
-                               where s.Id == 1
-                               select s).ToList<Student>();
+                List<StudentMarks> studentList = (from stu in dbcontext.Students join m in dbcontext.Marks 
+                               on stu.Id equals m.StudentId 
+                               join sub in dbcontext.Subject on m.SubjectId equals sub.Id
+                               join std in dbcontext.Standard on m.StandardId equals std.Id
+                               where stu.Hallticket == hallTicketNo
+                               select new StudentMarks{
+                                   Hallticket = stu.Hallticket,
+                                   SubjectName = sub.Name,
+                                   SubjectCode = sub.Code,
+                                   Grade = m.Grade,
+                                   GradePoint = m.GradePoint,
+                                   Year = std.Year,
+                                   Sem = std.Sem
+                               }).ToList<StudentMarks>();
+
+                List<Standard> standards = (from std in dbcontext.Standard
+                                            select std).ToList<Standard>();
+                for(int i=0; i<standards.Count; i++) {
+                   List<StudentMarks> marksRecords = studentList.FindAll(x => x.Year == standards[i].Year && x.Sem == standards[i].Sem);
+                    if (marksRecords.Count > 0) {
+                        int avg = marksRecords.Sum(x => x.GradePoint) / marksRecords.Count;
+                        StudentMarksByYear recordsByYear = new StudentMarksByYear();
+                        recordsByYear.StudentMarks = marksRecords;
+                        recordsByYear.Average = avg;
+                        recordsByYear.NoOfBacklogs = marksRecords.Count(x => x.Grade == "F");
+                        studentProfile.StudentMarksByYearList.Add(recordsByYear);
+                    }
+                }
+
             }
 
             //bool isAuthenticated = User.Identity.IsAuthenticated;
-            return studentList;
+            return studentProfile;
         }
 
         // GET api/values/5
