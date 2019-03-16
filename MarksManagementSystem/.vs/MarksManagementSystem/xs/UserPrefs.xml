@@ -1,16 +1,11 @@
 ﻿<Properties StartupConfiguration="{A3020CA2-AF69-466B-867F-A6B596A842CC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/Controllers/MarksExcelData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/ClientApp/src/app/class/class.component.css">
     <Files>
       <File FileName="MarksManagementSystem/Controllers/ExcelDataController.cs" Line="105" Column="64" />
-      <File FileName="MarksManagementSystem/ClientApp/src/app/app.module.ts" Line="26" Column="1" />
-      <File FileName="MarksManagementSystem/ClientApp/src/app/class/class.module.ts" Line="1" Column="1" />
-      <File FileName="MarksManagementSystem/ClientApp/src/app/dashboard/dashboard.module.ts" Line="1" Column="1" />
-      <File FileName="MarksManagementSystem/ClientApp/src/app/dashboard/dashboard-component/dashboard-component.component.html" Line="1" Column="1" />
-      <File FileName="MarksManagementSystem/ClientApp/src/app/class/class.component.css" Line="1" Column="1" />
-      <File FileName="MarksManagementSystem/ClientApp/src/app/class/class.component.spec.ts" Line="1" Column="1" />
       <File FileName="MarksManagementSystem/Controllers/ValuesController.cs" Line="1" Column="1" />
       <File FileName="MarksManagementSystem/Controllers/MarksExcelData.cs" Line="1" Column="1" />
       <File FileName="MarksManagementSystem/Controllers/SampleDataController.cs" Line="1" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/class/class.component.css" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
