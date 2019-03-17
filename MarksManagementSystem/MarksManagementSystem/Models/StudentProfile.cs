@@ -8,6 +8,8 @@ namespace MarksManagementSystem.Models
     public class StudentProfile {
         public List<StudentMarksByYear> StudentMarksByYearList { get; set; }
         public int NAAC { get; set; }
+        public double TotalAverage { get; set; }
+        public int TotalNoOfBacklogs { get; set; }
 
     } 
     public class StudentMarksByYear

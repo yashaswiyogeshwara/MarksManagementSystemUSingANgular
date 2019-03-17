@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const httpOptions = {
@@ -16,7 +16,14 @@ const httpOptions = {
 export class StudentServicesService {
 
   constructor(public http: HttpClient, @Inject('BASE_URL') public baseUrl: string) { }
-  
-  
+
+  public getStudent(hallTicketNo: string): Observable<any> {
+    debugger;
+    let me = this;
+    let params = new HttpParams();
+    params.set('hallTicketNo', hallTicketNo['HallticketNumber']);
+    //me.baseUrl + "api/ValuesController/GetStudents?hallTicketNo=" + hallTicketNo['HallticketNumber']
+    return me.http.get(me.baseUrl + "api/Values/GetStudents?hallTicketNo=" + hallTicketNo['HallticketNumber']);
+  } 
 
 }
