@@ -25,6 +25,11 @@ export class StudentProfileComponent implements OnInit {
   public  SendHallticket():void{
     console.log(this.StudentForm.value);
     this.Student = student;
+    if (this.StudentForm.value) {
+      this.studentServicesService.getStudent(this.StudentForm.value).subscribe((data) => {
+        debugger;
+      });
+    }
   }
  
 }
