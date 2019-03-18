@@ -63,3 +63,25 @@ table {
     border-radius: 10px;
 
 }
+.averageOfYear{
+
+ width: 76%;
+  background:grey;
+  color: aliceblue;
+  font-family: Courier New Lucida Console;
+  height: 30px;
+  left: 173px;
+  font-size: 25px;
+  text-align: center;
+
+}
+
+.yearandsem{
+  width: 76%;
+  background:white;
+  color: grey;
+  font-family: Courier New Lucida Console;
+  height: 30px;
+  left: 173px;
+  font-size: 30px;
+}

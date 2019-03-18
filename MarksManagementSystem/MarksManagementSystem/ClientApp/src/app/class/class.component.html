@@ -4,12 +4,13 @@
 <div class="ClassText">
 Class
 </div>
-<div class="YearOfJoiningtext"> Year Of Joining</div><input type="text" name="YearOfJoining" class="YearOfJoiningtextBox">
-<div class="Departmenttext">Department</div><input type="text" name="Department" class="DepartmenttextBox">
-<div class="Yeartext">Year</div><input type="text" name="Year" class="YeartextBox">
-<div class="Semestertext">Semester</div><input type="text" name="Semester" class="SemestertextBox">
-<div class="Sectiontext">section</div><input type="text" name="Semester" class="SectiontextBox">
-
+<form [formGroup]="ClassForm">
+<div class="YearOfJoiningtext"> Year Of Joining</div><input type="text" formControlName="YearOfJoining" name="YearOfJoining" class="YearOfJoiningtextBox">
+<div class="Departmenttext">Department</div><input type="text" formControlName="Department" name="Department" class="DepartmenttextBox">
+<div class="Yeartext">Year</div><input type="text" formControlName="Year"  name="Year" class="YeartextBox">
+<div class="Semestertext">Semester</div><input type="text" formControlName="Semester"  name="Semester" class="SemestertextBox">
+<div class="Sectiontext">section</div><input type="text" formControlName="Section" name="Section" class="SectiontextBox">
+</form>
 <button (click)="SendClass()" class="ClassButton">Submit</button>
 
 

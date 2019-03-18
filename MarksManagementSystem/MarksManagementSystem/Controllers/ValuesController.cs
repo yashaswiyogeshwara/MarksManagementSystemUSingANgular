@@ -49,7 +49,7 @@ namespace MarksManagementSystem.Controllers
                                                       }).ToList<StudentMarks>();
                     if (studentList.Count() > 0)
                     {
-                        studentProfile.TotalAverage = studentList.Sum((x) => x.GradePoint) / studentList.Count();
+                        studentProfile.TotalAverage = studentList.Average((x) => x.GradePoint);
                         studentProfile.TotalNoOfBacklogs = studentList.Count((x) => x.Grade == "F");
                     }
 
@@ -60,7 +60,7 @@ namespace MarksManagementSystem.Controllers
                         List<StudentMarks> marksRecords = studentList.FindAll(x => x.Year == standards[i].Year && x.Sem == standards[i].Sem);
                         if (marksRecords.Count > 0)
                         {
-                            int avg = marksRecords.Sum(x => x.GradePoint) / marksRecords.Count;
+                            double avg = marksRecords.Average(x => x.GradePoint);
                             StudentMarksByYear recordsByYear = new StudentMarksByYear();
                             recordsByYear.StudentMarks = marksRecords;
                             recordsByYear.Average = avg;
@@ -76,6 +76,54 @@ namespace MarksManagementSystem.Controllers
             
             return Ok(new { data = studentProfile});
         }
+
+
+
+        // GET api/values
+        [HttpGet("GetClass")]
+        public ActionResult GetClass(string YearOfJoining ,string Department,string Year,string Semester,string Section)
+        {
+            List<StudentMiniData> studentMiniDataList = new List<StudentMiniData>();
+            int yoj;
+            int year;
+            int sem;
+            int sec;
+            if (int.TryParse(YearOfJoining, out yoj) &&
+            int.TryParse(Year, out year) && int.TryParse(Semester, out sem) && int.TryParse(Section, out sec)) {
+                try
+                {
+                    using (DataContext dbcontext = context)
+                    {
+                        studentMiniDataList = (from stu in dbcontext.Students
+                                                          join m in dbcontext.Marks
+                                                          on stu.Id equals m.StudentId
+                                                          join sub in dbcontext.Subject on m.SubjectId equals sub.Id
+                                                          join std in dbcontext.Standard on m.StandardId equals std.Id
+                                                          where stu.Yearofjoin == yoj && std.Year == year && std.Sem == sem && std.Sem == sem
+                                                          group new {m,stu,std,sub} by stu.Hallticket into joined
+                                                          select new StudentMiniData
+                                                          { 
+                                                              HallTicket = joined.Key.ToString(),
+                                                              Average = joined.Average(x=> x.m.GradePoint),
+                                                              NoOfBacklogs = joined.Count(x => x.m.Grade == "F"),
+                                                              NAAC = joined.Min(x=> x.stu.NAAC)
+                                                          
+                                                      }).ToList<StudentMiniData>();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return Ok(new { mess = ex.Message });
+                }
+            }
+
+            return Ok(new { data = studentMiniDataList });
+        }
+
+
+
+
 
         // GET api/values/5
         [HttpGet("{id}")]

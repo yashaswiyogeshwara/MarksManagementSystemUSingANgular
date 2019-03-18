@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl} from '@angular/forms';
 import { StudentServicesService } from '../student-services.service';
-import {student} from'../MockStudentData';
-import { StudentData } from 'src/app/Models/StudentData';
+
 import { StudentProfile } from '../Models/StudentsProfile';
 
 
@@ -32,6 +31,7 @@ export class StudentProfileComponent implements OnInit {
         if (data && data.data) {
           me.Message = null;
           me.StudentData = data.data;
+          console.log( me.StudentData);
         } else {
           me.Message = "This Student does not have any Marks data, please verify the Hallticket and Renter";
         }

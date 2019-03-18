@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ClassRoutingModule } from './class-routing.module';
 import { ClassComponent } from './class.component';
 import {MatTableModule} from '@angular/material/table';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms'; 
+
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import {MatTableModule} from '@angular/material/table';
   imports: [
     CommonModule,
     ClassRoutingModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ClassModule { }
