@@ -1,50 +1,57 @@
 <div>
-    <img src="assets/image/Dashboard.jpeg" > 
+  <img src="assets/image/Dashboard.jpeg">
 </div>
 <div class="StudentProfileText">
   Student Profile
 </div>
-<form [formGroup]="StudentForm">  
-<div class="HallticketText">Hallticket Number</div>  <input type="text" formControlName="HallticketNumber" name="HallticketNumber" class="HallticketTextBox">
-<br>
-<button (click)="SendHallticket()" class="StudentProfileButton">Submit</button>
+<form [formGroup]="StudentForm">
+  <div class="HallticketText">Hallticket Number</div>  <input type="text" formControlName="HallticketNumber" name="HallticketNumber" class="HallticketTextBox">
+  <br>
+  <button (click)="SendHallticket()" class="StudentProfileButton">Submit</button>
 </form>
+<!--
 
-<table mat-table [dataSource]="Student" class="mat-elevation-z8">
+public  SubjectName: string;
+    public SubjectCode: string;
+    public Year: number;
+    public Sem: number;
+    public Grade: number;
+    public GradePoint: number;
+-->
+<div *ngIf="StudentData">
+  <div *ngFor="let marksByYear of StudentData.studentMarksByYearList">
+    <table mat-table [dataSource]="marksByYear.studentMarks" class="mat-elevation-z8">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
-    <ng-container matColumnDef="Sno">
-      <th mat-header-cell *matHeaderCellDef class="tableHead">  Sno </th>
-      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.Sno}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="SubjectName">
-      <th mat-header-cell *matHeaderCellDef class="tableHead"> SubjectName </th>
-      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.SubjectName}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="SubjectCode">
-      <th mat-header-cell *matHeaderCellDef class="tableHead"> SubjectCode </th>
-      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.SubjectCode}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="Grade">
-      <th mat-header-cell *matHeaderCellDef class="tableHead"> Grade </th>
-      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.Grade}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="GradePoint">
-        <th mat-header-cell *matHeaderCellDef class="tableHead"> GradePoint </th>
-        <td mat-cell *matCellDef="let element" class="tabledata"> {{element.GradePoint}} </td>
+      <!-- Name Column -->
+      <ng-container matColumnDef="SubjectName">
+        <th mat-header-cell *matHeaderCellDef class="tableHead"> SubjectName </th>
+        <td mat-cell *matCellDef="let element" class="tabledata"> {{element.subjectName}} </td>
       </ng-container>
-    
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="SubjectCode">
+        <th mat-header-cell *matHeaderCellDef class="tableHead"> SubjectCode </th>
+        <td mat-cell *matCellDef="let element" class="tabledata"> {{element.subjectCode}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Grade">
+        <th mat-header-cell *matHeaderCellDef class="tableHead"> Grade </th>
+        <td mat-cell *matCellDef="let element" class="tabledata"> {{element.grade}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="GradePoint">
+        <th mat-header-cell *matHeaderCellDef class="tableHead"> gradePoint </th>
+        <td mat-cell *matCellDef="let element" class="tabledata"> {{element.gradePoint}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div>Average : {{marksByYear.average}}</div>
+    <div>No Of Backlogs : {{marksByYear.noOfBacklogs}}</div>
+  </div>
+  <div>NAAC : {{StudentData.naac}}</div>
+  <div>Total Average : {{StudentData.totalAverage}}</div>
+  <div>Total No Of Backlogs : {{StudentData.totalNoOfBacklogs}}</div>
+</div>
