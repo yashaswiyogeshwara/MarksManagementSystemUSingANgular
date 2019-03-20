@@ -34,6 +34,12 @@
       <None Remove="ClientApp\src\app\class-services.service.ts" />
       <None Remove="ClientApp\src\app\class-services.service.spec.ts" />
     </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="ClientApp\src\app\class\Models.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="ClientApp\src\app\class\Models\" />
+    </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
