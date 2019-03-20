@@ -1,3 +1,32 @@
-<p>
-  department-component works!
-</p>
+<div>
+  <img src="assets/image/Dashboard.jpeg" > 
+</div>
+<div class="DepartmentHeading">
+Department
+</div>
+<form [formGroup]="DepartmentForm">
+<div class="YearOfJoiningtext"> Year Of Joining</div><input type="text" formControlName="YearOfJoining" name="YearOfJoining" class="YearOfJoiningtextBox">
+<div class="Departmenttext">Department</div><input type="text" formControlName="Department" name="Department" class="DepartmenttextBox">
+<div class="Yeartext">Year</div><input type="text" formControlName="Year"  name="Year" class="YeartextBox">
+<div class="Semestertext">Semester</div><input type="text" formControlName="Semester"  name="Semester" class="SemestertextBox">
+</form>
+<button (click)="SendDepartment()" class="DepartmentButton">Submit</button>
+
+<div *ngIf="departmentData">
+
+<table mat-table [dataSource]="departmentData" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="Section">
+    <th mat-header-cell *matHeaderCellDef class="tableHead"> Section </th>
+    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.section}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Avearage">
+    <th mat-header-cell *matHeaderCellDef class="tableHead"> Avearage </th>
+    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.average}} </td>
+  </ng-container>  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+</div>

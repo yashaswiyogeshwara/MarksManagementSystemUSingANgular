@@ -13,41 +13,40 @@ Class
 </form>
 <button (click)="SendClass()" class="ClassButton">Submit</button>
 
-
-<table mat-table [dataSource]="classdata" class="mat-elevation-z8">
+<div *ngIf="classProfile">
+ 
+<table mat-table [dataSource]="classProfile" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
-  <ng-container matColumnDef="Sno">
-    <th mat-header-cell *matHeaderCellDef class="tableHead">  Sno </th>
-    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.Sno}} </td>
-  </ng-container>
-
+  
   <!-- Name Column -->
   <ng-container matColumnDef="HallTicketNumber">
     <th mat-header-cell *matHeaderCellDef class="tableHead"> HallTicketNumber </th>
-    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.HallTicketNumber}} </td>
+    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.hallTicket}} </td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="Avearage">
     <th mat-header-cell *matHeaderCellDef class="tableHead"> Avearage </th>
-    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.Avearage}} </td>
+    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.average}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="NoOfBacklogs">
     <th mat-header-cell *matHeaderCellDef class="tableHead"> NoOfBacklogs </th>
-    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.NoOfBacklogs}} </td>
+    <td mat-cell *matCellDef="let element" class="tabledata"> {{element.noOfBacklogs}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="NAACBacklogs">
-      <th mat-header-cell *matHeaderCellDef class="tableHead"> NAACBacklogs </th>
-      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.NAACBacklogs}} </td>
+  <ng-container matColumnDef="NAAC">
+      <th mat-header-cell *matHeaderCellDef class="tableHead"> NAAC</th>
+      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.naac}} </td>
     </ng-container>
   
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+</div>

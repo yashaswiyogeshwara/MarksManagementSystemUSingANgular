@@ -99,7 +99,7 @@ namespace MarksManagementSystem.Controllers
                                                           on stu.Id equals m.StudentId
                                                           join sub in dbcontext.Subject on m.SubjectId equals sub.Id
                                                           join std in dbcontext.Standard on m.StandardId equals std.Id
-                                                          where stu.Yearofjoin == yoj && std.Year == year && std.Sem == sem && std.Sem == sem
+                                                          where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department && std.Sem == sem
                                                           group new {m,stu,std,sub} by stu.Hallticket into joined
                                                           select new StudentMiniData
                                                           { 
@@ -121,6 +121,48 @@ namespace MarksManagementSystem.Controllers
             return Ok(new { data = studentMiniDataList });
         }
 
+
+        [HttpGet("GetDepartment")]
+        public ActionResult GetDepartment(string YearOfJoining, string Department, string Year, string Semester )
+        {
+            List<DepartmentData> departmentDataList = new List<DepartmentData>();
+            int yoj;
+            int year;
+            int sem;
+            if (int.TryParse(YearOfJoining, out yoj) &&
+            int.TryParse(Year, out year) && int.TryParse(Semester, out sem) )
+            {
+                try
+                {
+                    using (DataContext dbcontext = context)
+                    {
+
+                        departmentDataList = (from stu in dbcontext.Students
+                                              join m in dbcontext.Marks
+                                              on stu.Id equals m.StudentId
+                                              join sub in dbcontext.Subject on m.SubjectId equals sub.Id
+                                              join std in dbcontext.Standard on m.StandardId equals std.Id
+                                              where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department
+                                              group new { m, stu, std, sub } by stu.Section into joined
+                                              select new DepartmentData
+                                              {
+                                                  Section = int.Parse(joined.Key),
+                                                    Average = joined.Average(x => x.m.GradePoint),
+                                                  
+
+                                               }).ToList<DepartmentData>();
+                       
+                    }
+                   
+                }
+                catch (Exception ex)
+                {
+                    return Ok(new { mess = ex.Message });
+                }
+            }
+
+            return Ok(new { data = departmentDataList });
+        }
 
 
 
