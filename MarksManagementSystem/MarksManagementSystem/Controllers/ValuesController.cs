@@ -237,9 +237,8 @@ namespace MarksManagementSystem.Controllers
         }
 
         [HttpGet("AddSubject")]
-        public ActionResult AddSubject(string Department, string Year, string Semester, string SubjectName)
+        public ActionResult AddSubject(string Department, string Year, string Semester, string SubjectName, string SubjectCode)
         {
-            string SubjectCode = "ABC";
             int year;
             int sem;
             if (int.TryParse(Year, out year) && int.TryParse(Semester, out sem))
