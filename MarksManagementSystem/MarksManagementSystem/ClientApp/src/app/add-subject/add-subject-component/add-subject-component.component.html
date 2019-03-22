@@ -4,11 +4,18 @@
 <div class="AddSubjectText">
 AddSubject
 </div>
+<div class="Homeheadder"  routerLink="/Dashboard">Home</div>
+<div class="AddStudentheadder" routerLink="/AddSubject">| AddSubject | </div>
+<div class="Logoutheadder" routerLink="" (click)="Logout()" >Logout</div>
+
+
 <form [formGroup]="AddSubjectForm">
 <div class="Departmenttext">Department</div><input type="text" formControlName="Department" name="Department" class="DepartmenttextBox">
 <div class="Yeartext">Year</div><input type="text" formControlName="Year"  name="Year" class="YeartextBox">
 <div class="Semestertext">Semester</div><input type="text" formControlName="Semester"  name="Semester" class="SemestertextBox">
 <div class="SubjectNametext">SubjectName</div><input type="text" formControlName="SubjectName" name="SubjectName" class="SubjectNametextBox">
+<div class="SubjectCodetext">SubjectCode</div><input type="text" formControlName="SubjectCode" name="SubjectCode" class="SubjectCodetextBox">
+
 
 </form>
 <button (click)="AddSubject()" class="AddSubjectButton">Submit</button>

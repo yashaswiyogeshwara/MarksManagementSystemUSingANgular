@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -16,18 +16,14 @@ const httpOptions = {
 })
 export class LoginService {
 
-  Url = 'https://localhost:44349/api/account/login';
-  getStudentsUrl = 'https://localhost:44349/api/values/getstudents';
-  constructor(private http: HttpClient) { }
+  Url = 'api/account/login';
+ // getStudentsUrl = 'https://localhost:44349/api/values/getstudents';
+  constructor(private http: HttpClient, @Inject('BASE_URL') public baseUrl: string) { }
 
   public login(loginParams: any): Observable<any> {
     const me = this;
-    return me.http.post<any>(me.Url , loginParams, httpOptions);
+    return me.http.post<any>(this.baseUrl+this.Url, loginParams, httpOptions);
   }
 
-  public getStudents():Observable<any>{
-    debugger;
-    const me = this;
-    return me.http.get<any>(me.getStudentsUrl, httpOptions);
-  }
+ 
 }

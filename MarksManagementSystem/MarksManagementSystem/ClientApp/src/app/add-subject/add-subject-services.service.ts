@@ -18,7 +18,7 @@ export class AddSubjectServicesService {
 
   constructor(public http: HttpClient, @Inject('BASE_URL') public baseUrl: string) { }
 
-  public addSubject(department:string,year:string,semester:string,subjectName:string): Observable<any> {
+  public addSubject(department:string,year:string,semester:string,subjectName:string,subjectCode:string): Observable<any> {
     debugger;
     let me = this;
     let data = new HttpParams()
@@ -26,7 +26,7 @@ export class AddSubjectServicesService {
     .set('Year', year)
     .set('Semester', semester)
     .set('SubjectName', subjectName)
-    
+    .set('SubjectCode',subjectCode)
     //me.baseUrl + "api/ValuesController/GetStudents?hallTicketNo=" + hallTicketNo['HallticketNumber']
     return me.http.get(me.baseUrl + "api/Values/AddSubject", {params: data});
   }

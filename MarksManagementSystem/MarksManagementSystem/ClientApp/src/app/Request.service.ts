@@ -9,10 +9,14 @@ export class RequestService {
   constructor() { }
 
   public getAuthorizationToken() {
-    return this.authorizationToken;
-  }
+    debugger;
+    return this.authorizationToken || window.localStorage.getItem("mmsAuthToken");
+    }
 
   public setAuthorizationToken(value : string) {
+    debugger;
     this.authorizationToken = value;
+    window.localStorage.clear();
+    window.localStorage.setItem('mmsAuthToken',value);
   }
 }
