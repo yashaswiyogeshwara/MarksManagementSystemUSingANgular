@@ -8,7 +8,7 @@ import { AddServiceService } from '../add-service.service';
 export class AddMarksComponent implements OnInit {
     @ViewChild('fileDialog') fileDialog : Element
   constructor(public addService : AddServiceService) { }
-
+  Message: string;
   ngOnInit() {
   }
 
@@ -27,7 +27,13 @@ export class AddMarksComponent implements OnInit {
     debugger;
     const fileSelected: File = $event.target.files[0];
    this.addService.AddMarks(fileSelected)
-   .subscribe( (response) => {
+     .subscribe((response) => {
+       this.Message = null;
+       if (!response.success) {
+         if (response.mess) {
+           this.Message = response.mess;
+         }
+       }
       console.log('set any success actions...');
       return response;
     },(error) => {

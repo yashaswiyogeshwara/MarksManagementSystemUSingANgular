@@ -16,8 +16,8 @@ const httpOptions = {
 })
 export class LoginService {
 
-  Url = 'https://localhost:5001/api/account/login';
-  getStudentsUrl= 'https://localhost:5001/api/values/getstudents';
+  Url = 'https://localhost:44349/api/account/login';
+  getStudentsUrl = 'https://localhost:44349/api/values/getstudents';
   constructor(private http: HttpClient) { }
 
   public login(loginParams: any): Observable<any> {

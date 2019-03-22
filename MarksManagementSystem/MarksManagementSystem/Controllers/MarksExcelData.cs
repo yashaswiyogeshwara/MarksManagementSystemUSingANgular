@@ -32,7 +32,13 @@ namespace MarksManagementSystem.Controllers
         public async Task<IActionResult> Upload(List<IFormFile> _file)
         {
             try
-            {   
+            {
+                bool accessNotAllowed =
+                String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value, "unauth");
+                if (accessNotAllowed)
+                {
+                    return Ok(new { success = false, mess = "Not authenticated" });
+                }
                 List<MarksExcel> excelMarksList = new List<MarksExcel>();
                 Marks marks = new Marks();
                 Student student = new Student();
@@ -147,10 +153,10 @@ namespace MarksManagementSystem.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(new { mess = ex.Message });
+                return Ok(new { success = false, mess = ex.Message });
             }
 
-            return Ok(new { mess = "Successfully loaded data" });
+            return Ok(new { success = true, mess = "Successfully loaded data" });
         }
     }
 

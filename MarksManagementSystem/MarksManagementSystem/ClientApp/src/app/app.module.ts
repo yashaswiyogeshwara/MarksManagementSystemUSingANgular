@@ -24,6 +24,13 @@ import{ClassComponent} from'./class/class.component';
 import{DepartmentModule} from './department/department.module';
 import {DepartmentComponentComponent} from './department/department-component/department-component.component'
 import {MatTableModule} from '@angular/material/table';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonInterceptor } from './Common-Interceptor';
+import { RequestService } from './Request.service';
+
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass : CommonInterceptor, multi: true }
+];
 
 const routes: Routes = [
   { path: '', component:LoginPageComponent },
@@ -57,7 +64,7 @@ const routes: Routes = [
     MatTableModule,
     [ RouterModule.forRoot(routes), BrowserAnimationsModule],
   ],
-  providers: [],
+  providers: [RequestService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
