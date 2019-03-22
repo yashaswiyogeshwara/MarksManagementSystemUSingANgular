@@ -33,7 +33,11 @@ export class StudentProfileComponent implements OnInit {
           me.StudentData = data.data;
           console.log( me.StudentData);
         } else {
-          me.Message = "This Student does not have any Marks data, please verify the Hallticket and Renter";
+          if (data.mess && data.mess.length > 0) {
+            me.Message = data.mess;
+          } else {
+            me.Message = "This Student does not have any Marks data, please verify the Hallticket and Renter";
+          }
         }
       });
     }

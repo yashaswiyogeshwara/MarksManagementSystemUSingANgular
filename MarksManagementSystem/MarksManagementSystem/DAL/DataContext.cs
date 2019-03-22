@@ -13,6 +13,7 @@ namespace MarksManagementSystem.DAL
         public DbSet<Subject> Subject { get; set; }
         public DbSet<Marks> Marks { get; set; }
         public DbSet<Standard> Standard { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {

@@ -24,8 +24,17 @@ import{ClassComponent} from'./class/class.component';
 import{DepartmentModule} from './department/department.module';
 import {DepartmentComponentComponent} from './department/department-component/department-component.component'
 import {MatTableModule} from '@angular/material/table';
+
 import{AddSubjectModule} from './add-subject/add-subject.module';
 import{AddSubjectComponentComponent} from'./add-subject/add-subject-component/add-subject-component.component';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonInterceptor } from './Common-Interceptor';
+import { RequestService } from './Request.service';
+
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass : CommonInterceptor, multi: true }
+];
 
 
 const routes: Routes = [
@@ -60,7 +69,7 @@ const routes: Routes = [
     AddSubjectModule,
     [ RouterModule.forRoot(routes), BrowserAnimationsModule],
   ],
-  providers: [],
+  providers: [RequestService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

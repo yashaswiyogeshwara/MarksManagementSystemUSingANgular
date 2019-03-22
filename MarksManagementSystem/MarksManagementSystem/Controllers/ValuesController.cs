@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MarksManagementSystem.DAL;
+﻿using MarksManagementSystem.DAL;
 using MarksManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MarksManagementSystem.Controllers
 {
@@ -26,6 +25,11 @@ namespace MarksManagementSystem.Controllers
         [HttpGet("GetStudents")]
         public ActionResult GetStudents(string hallTicketNo)
         {
+            bool accessNotAllowed =
+                String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value,"unauth");
+            if (accessNotAllowed) {
+                return Ok(new { success = false,  mess = "Not authenticated" });
+            }
             StudentProfile studentProfile = new StudentProfile();
             studentProfile.StudentMarksByYearList = new List<StudentMarksByYear>();
             try {
@@ -83,6 +87,13 @@ namespace MarksManagementSystem.Controllers
         [HttpGet("GetClass")]
         public ActionResult GetClass(string YearOfJoining ,string Department,string Year,string Semester,string Section)
         {
+            bool accessNotAllowed =
+                String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value, "unauth");
+            if (accessNotAllowed)
+            {
+                return Ok(new { success = false, mess = "Not authenticated" });
+            }
+            
             List<StudentMiniData> studentMiniDataList = new List<StudentMiniData>();
 
             int yoj;
@@ -175,6 +186,12 @@ namespace MarksManagementSystem.Controllers
         [HttpGet("GetDepartment")]
         public ActionResult GetDepartment(string YearOfJoining, string Department, string Year, string Semester )
         {
+            bool accessNotAllowed =
+                String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value, "unauth");
+            if (accessNotAllowed)
+            {
+                return Ok(new { success = false, mess = "Not authenticated" });
+            }
             List<DepartmentData> departmentDataList = new List<DepartmentData>();
             int yoj;
             int year;
@@ -214,7 +231,11 @@ namespace MarksManagementSystem.Controllers
             return Ok(new { data = departmentDataList });
         }
 
-
+        [HttpGet("AddSubject")]
+        public ActionResult AddSubject(string Department, string Year, string Semester, string SubjectName)
+        {
+            return null;
+        }
 
 
         // GET api/values/5
