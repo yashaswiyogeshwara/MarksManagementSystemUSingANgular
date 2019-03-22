@@ -16,7 +16,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class SingupService {
-  Url: string = "https://localhost:5001/api/account/register";
+  Url: string = "https://localhost:44349/api/account/register";
   constructor(public http : HttpClient) { }
 
 

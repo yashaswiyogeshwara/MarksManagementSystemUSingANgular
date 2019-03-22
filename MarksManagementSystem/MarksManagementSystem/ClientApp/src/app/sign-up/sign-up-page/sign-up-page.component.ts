@@ -21,15 +21,16 @@ export class SignUpPageComponent implements OnInit {
       Name:new FormControl,
       Password:new FormControl,
       Email:new FormControl,
-      User:new FormControl
+      IsAdmin:new FormControl
     });
 
   }
   
-  public onSubmit():void{
+  public onSubmit(): void{
+    debugger;
     const me = this;
    this.singUpService.RegisterUser(this.SignupForm.value).subscribe((data)=>{
-    if(data['Success']){
+    if(data['success']){
       me.ErrorMessage = null;
       me.router.navigate(['']);
     } else {

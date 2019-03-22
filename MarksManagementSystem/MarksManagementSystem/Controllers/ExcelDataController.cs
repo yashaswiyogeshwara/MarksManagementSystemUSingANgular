@@ -33,6 +33,12 @@ namespace MarksManagementSystem.Controllers
         {
             try
             {
+                bool accessNotAllowed =
+                String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value, "unauth");
+                if (accessNotAllowed)
+                {
+                    return Ok(new { success = false, mess = "Not authenticated" });
+                }
                 IFormFile file = Request.Form.Files[0];
                 string folderName = "Upload";
                 string webRootPath = _hostingEnvironment.WebRootPath;
@@ -114,10 +120,10 @@ namespace MarksManagementSystem.Controllers
             }
             catch (Exception ex)
             {
-                return Ok(new { mess = ex.Message });
+                return Ok(new { success = false, mess = ex.Message });
             }
 
-            return Ok(new { mess = "Successfully loaded data" });
+            return Ok(new { success = true, mess = "Successfully loaded data" });
         }
     }
 }
