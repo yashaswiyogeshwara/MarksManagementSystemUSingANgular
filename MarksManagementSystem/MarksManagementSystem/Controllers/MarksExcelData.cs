@@ -129,6 +129,8 @@ namespace MarksManagementSystem.Controllers
 
                             List<Marks> dbMarksList = (from m in _context.Marks
                                                        select m).ToList<Marks>();
+                            List<Student> students = (from s in _context.Students
+                                                      select s).ToList<Student>(); 
                             marksList.ForEach(mrk =>
                             {
                                 Marks record = dbMarksList.Where(m => m.StudentId == mrk.StudentId && m.SubjectId == mrk.SubjectId).FirstOrDefault();
@@ -138,7 +140,13 @@ namespace MarksManagementSystem.Controllers
                                     record.GradePoint = mrk.GradePoint;
                                     _context.Marks.Update(record);
                                 }
-                                else {
+                                else
+                                {
+                                    if (mrk.Grade.ToLower() == "f") {
+                                        Student _student = students.Where(s => s.Id == mrk.StudentId).FirstOrDefault();
+                                        _student.NAAC++;
+                                        _context.Students.Update(_student);
+                                    }
                                     _context.Marks.Add(mrk);
                                 }
                             });
