@@ -31,4 +31,18 @@ export class ClassServicesService {
     return me.http.get(me.baseUrl + "api/Values/GetClass", {params: data});
   } 
 
+  public getSubject(yearOfJoining:string,department:string,year:string,semester:string,section:string,subjectName:string): Observable<any> {
+    debugger;
+    let me = this;
+    let data = new HttpParams()
+    .set('YearOfJoining', yearOfJoining)
+    .set('Department', department)
+    .set('Year', year)
+    .set('Semester', semester)
+    .set('Section', section)
+    .set('SubjectName', subjectName)
+    
+    //me.baseUrl + "api/ValuesController/GetStudents?hallTicketNo=" + hallTicketNo['HallticketNumber']
+    return me.http.get(me.baseUrl + "api/Values/GetSubject", {params: data});
+  } 
 }

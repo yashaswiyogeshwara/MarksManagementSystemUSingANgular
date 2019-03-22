@@ -10,6 +10,8 @@ Class
 <div class="Yeartext">Year</div><input type="text" formControlName="Year"  name="Year" class="YeartextBox">
 <div class="Semestertext">Semester</div><input type="text" formControlName="Semester"  name="Semester" class="SemestertextBox">
 <div class="Sectiontext">section</div><input type="text" formControlName="Section" name="Section" class="SectiontextBox">
+<div class="SubjectNametext">SubjectName</div><input type="text" formControlName="SubjectName" name="SubjectName" class="SubjectNametextBox">
+
 </form>
 <button (click)="SendClass()" class="ClassButton">Submit</button>
 
@@ -17,24 +19,19 @@ Class
  
 <table mat-table [dataSource]="classProfile" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
   
-  <!-- Name Column -->
   <ng-container matColumnDef="HallTicketNumber">
     <th mat-header-cell *matHeaderCellDef class="tableHead"> HallTicketNumber </th>
     <td mat-cell *matCellDef="let element" class="tabledata"> {{element.hallTicket}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
+ 
   <ng-container matColumnDef="Avearage">
     <th mat-header-cell *matHeaderCellDef class="tableHead"> Avearage </th>
     <td mat-cell *matCellDef="let element" class="tabledata"> {{element.average}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  
   <ng-container matColumnDef="NoOfBacklogs">
     <th mat-header-cell *matHeaderCellDef class="tableHead"> NoOfBacklogs </th>
     <td mat-cell *matCellDef="let element" class="tabledata"> {{element.noOfBacklogs}} </td>
@@ -50,3 +47,42 @@ Class
 </table>
 
 </div>
+
+
+
+<div *ngIf="subjectDataProfile">
+ 
+  <table mat-table [dataSource]="subjectDataProfile.subjectDataPerSem" class="mat-elevation-z8">
+  
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    
+    <!-- Name Column -->
+    <ng-container matColumnDef="HallTicketNumber">
+      <th mat-header-cell *matHeaderCellDef class="tableHead"> HallTicketNumber </th>
+      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.hallTicket}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="GradeInSubject">
+      <th mat-header-cell *matHeaderCellDef class="tableHead"> Grade </th>
+      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.gradeInSubject}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="GradePointInSubject">
+      <th mat-header-cell *matHeaderCellDef class="tableHead"> GradePoint </th>
+      <td mat-cell *matCellDef="let element" class="tabledata"> {{element.gradePointInSubject}} </td>
+    </ng-container>
+  
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsSubject"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsSubject;"></tr>
+  </table>
+  
+    <td class="Totalaverage">TotalAverage:{{subjectDataProfile.totalAverage}} </td>
+
+  </div>
+  

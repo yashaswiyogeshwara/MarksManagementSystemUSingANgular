@@ -24,6 +24,9 @@ import{ClassComponent} from'./class/class.component';
 import{DepartmentModule} from './department/department.module';
 import {DepartmentComponentComponent} from './department/department-component/department-component.component'
 import {MatTableModule} from '@angular/material/table';
+import{AddSubjectModule} from './add-subject/add-subject.module';
+import{AddSubjectComponentComponent} from'./add-subject/add-subject-component/add-subject-component.component';
+
 
 const routes: Routes = [
   { path: '', component:LoginPageComponent },
@@ -33,9 +36,8 @@ const routes: Routes = [
   {path:'AddMarks',component:AddMarksComponent},
   {path:'StudemtProfile',component:StudentProfileComponent},
   {path:'Class',component:ClassComponent},
-    {path:'Department',component:DepartmentComponentComponent}
-
-  
+    {path:'Department',component:DepartmentComponentComponent},
+{path:'AddSubject',component:AddSubjectComponentComponent},  
   
 ];
 
@@ -55,6 +57,7 @@ const routes: Routes = [
     ClassModule,
     DepartmentModule,
     MatTableModule,
+    AddSubjectModule,
     [ RouterModule.forRoot(routes), BrowserAnimationsModule],
   ],
   providers: [],

@@ -2,7 +2,7 @@
 
 table {
     position: absolute;
-    top:400px;
+    top:500px;
     left: 173px;
     width: 76%;
 
@@ -35,18 +35,18 @@ table {
      height: 30px;
      width: 70px;
      border-radius: 10px;
-     left: 250px;
+     left: 100px;
     background:white;
     color: rgb(7, 170, 235);
     font-size: 20px;
-    top:250px;
+    top:300px;
     text-align: center;
 }
 
 .Departmenttext{
     position:absolute;
     top:250px;
-    left: 350px;
+    left: 300px;
     font-size: 30px;
     color: white; 
     font-family: Courier New Lucida Console;
@@ -57,17 +57,17 @@ table {
     height: 30px;
     width: 70px;
     border-radius: 10px;
-    left:500px;
+    left:325px;
    background:white;
    color: rgb(7, 170, 235);
    font-size: 20px;
-   top:250px;   
+   top:300px;   
    text-align: center;
 }
 .Yeartext{
     position:absolute;
     top:250px;
-    left: 600px;
+    left: 510px;
     font-size: 30px;
     color: white; 
     font-family: Courier New Lucida Console;
@@ -77,17 +77,17 @@ table {
     height: 30px;
     width: 70px;
     border-radius: 10px;
-    left:670px;
+    left:500px;
    background:white;
    color: rgb(7, 170, 235);
    font-size: 20px;
-   top:250px;  
+   top:300px;  
    text-align: center; 
 }
 .Semestertext{
     position:absolute;
     top:250px;
-    left: 770px;
+    left: 625px;
     font-size: 30px;
     color: white; 
     font-family: Courier New Lucida Console;
@@ -97,18 +97,18 @@ table {
     height: 30px;
     width: 70px;
     border-radius: 10px;
-    left:890px;
+    left:650px;
    background:white;
    color: rgb(7, 170, 235);
    font-size: 20px;
-   top:250px;  
+   top:300px;  
    text-align: center; 
 }
 
 .Sectiontext{
     position:absolute;
     top:250px;
-    left: 990px;
+    left: 800px;
     font-size: 30px;
     color: white; 
     font-family: Courier New Lucida Console;
@@ -118,14 +118,35 @@ table {
     height: 30px;
     width: 70px;
     border-radius: 10px;
-    left:1090px;
+    left:800px;
    background:white;
    color: rgb(7, 170, 235);
    font-size: 20px;
-   top:250px; 
+   top:300px; 
    text-align: center;  
 }
 
+.SubjectNametext{
+
+    position:absolute;
+    top:250px;
+    left: 1000px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+}
+.SubjectNametextBox{
+    position: absolute;
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    left:975px;
+   background:white;
+   color: rgb(7, 170, 235);
+   font-size: 20px;
+   top:300px; 
+   text-align: center;  
+}
 .ClassText{
     position:absolute;
   top:80px;
@@ -138,7 +159,7 @@ table {
 
 .ClassButton{
     position:absolute;
-    top:300px;
+    top:400px;
     left: 600px;
     height:50px ;
     width: 100px;
@@ -146,5 +167,19 @@ table {
     font-size: 20px;
     color: rgb(7, 170, 235);
     border-radius: 10px;
+
+}
+
+
+.Totalaverage{
+position: relative;
+    width: 76%;
+  background:grey;
+  color: aliceblue;
+  font-family: Courier New Lucida Console;
+  height: 30px;
+  left: 173px;
+  font-size: 25px;
+  text-align: center;
 
 }

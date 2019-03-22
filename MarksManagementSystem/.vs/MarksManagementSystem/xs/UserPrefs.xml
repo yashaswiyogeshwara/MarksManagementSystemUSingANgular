@@ -1,16 +1,7 @@
 ﻿<Properties StartupConfiguration="{A3020CA2-AF69-466B-867F-A6B596A842CC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/Controllers/MarksExcelData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/ClientApp/src/app/class/class.component.html">
     <Files>
-      <File FileName="MarksManagementSystem/Controllers/ValuesController.cs" Line="151" Column="51" />
-      <File FileName="MarksManagementSystem/ClientApp/src/app/student-profile/Models/StudentsProfile.ts" Line="8" Column="24" />
-      <File FileName="MarksManagementSystem/ClientApp/src/app/class/Models/ClassProfile.ts" Line="1" Column="1" />
-      <File FileName="MarksManagementSystem/Models/ClassInfo.cs" Line="20" Column="30" />
-      <File FileName="MarksManagementSystem/Controllers/AccountController.cs" Line="29" Column="68" />
-      <File FileName="MarksManagementSystem/Models/ClassProfile.cs" Line="12" Column="38" />
-      <File FileName="MarksManagementSystem/Models/StudentMiniData.cs" Line="12" Column="38" />
-      <File FileName="MarksManagementSystem/MarksManagementSystem.csproj" Line="1" Column="1" />
-      <File FileName="MarksManagementSystem/Models/DepartmentData.cs" Line="4" Column="32" />
-      <File FileName="MarksManagementSystem/Controllers/MarksExcelData.cs" Line="1" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/class/class.component.html" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -26,11 +17,6 @@
       <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="150" column="1" />
       <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="153" column="1" />
       <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="126" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/ValuesController.cs" relfile="MarksManagementSystem/Controllers/ValuesController.cs" line="126" column="114" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/ValuesController.cs" relfile="MarksManagementSystem/Controllers/ValuesController.cs" line="128" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/ValuesController.cs" relfile="MarksManagementSystem/Controllers/ValuesController.cs" line="164" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/ValuesController.cs" relfile="MarksManagementSystem/Controllers/ValuesController.cs" line="154" column="86" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/ValuesController.cs" relfile="MarksManagementSystem/Controllers/ValuesController.cs" line="157" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

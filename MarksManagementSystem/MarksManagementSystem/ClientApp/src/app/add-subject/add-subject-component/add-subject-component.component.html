@@ -1,0 +1,14 @@
+<div>
+  <img src="assets/image/Dashboard.jpeg" > 
+</div>
+<div class="AddSubjectText">
+AddSubject
+</div>
+<form [formGroup]="AddSubjectForm">
+<div class="Departmenttext">Department</div><input type="text" formControlName="Department" name="Department" class="DepartmenttextBox">
+<div class="Yeartext">Year</div><input type="text" formControlName="Year"  name="Year" class="YeartextBox">
+<div class="Semestertext">Semester</div><input type="text" formControlName="Semester"  name="Semester" class="SemestertextBox">
+<div class="SubjectNametext">SubjectName</div><input type="text" formControlName="SubjectName" name="SubjectName" class="SubjectNametextBox">
+
+</form>
+<button (click)="AddSubject()" class="AddSubjectButton">Submit</button>
