@@ -26,13 +26,15 @@ namespace MarksManagementSystem.Controllers
         public ActionResult GetStudents(string hallTicketNo)
         {
             bool accessNotAllowed =
-                String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value,"unauth");
-            if (accessNotAllowed) {
-                return Ok(new { success = false,  mess = "Not authenticated" });
+                String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value, "unauth");
+            if (accessNotAllowed)
+            {
+                return Ok(new { success = false, mess = "Not authenticated" });
             }
             StudentProfile studentProfile = new StudentProfile();
             studentProfile.StudentMarksByYearList = new List<StudentMarksByYear>();
-            try {
+            try
+            {
                 using (DataContext dbcontext = context)
                 {
                     List<StudentMarks> studentList = (from stu in dbcontext.Students
@@ -74,18 +76,20 @@ namespace MarksManagementSystem.Controllers
                     }
 
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 return Ok(new { mess = ex.Message });
             }
-            
-            return Ok(new { data = studentProfile});
+
+            return Ok(new { data = studentProfile });
         }
 
 
 
         // GET api/values
         [HttpGet("GetClass")]
-        public ActionResult GetClass(string YearOfJoining ,string Department,string Year,string Semester,string Section)
+        public ActionResult GetClass(string YearOfJoining, string Department, string Year, string Semester, string Section)
         {
             bool accessNotAllowed =
                 String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value, "unauth");
@@ -93,33 +97,34 @@ namespace MarksManagementSystem.Controllers
             {
                 return Ok(new { success = false, mess = "Not authenticated" });
             }
-            
+
             List<StudentMiniData> studentMiniDataList = new List<StudentMiniData>();
 
             int yoj;
             int year;
             int sem;
             if (int.TryParse(YearOfJoining, out yoj) &&
-            int.TryParse(Year, out year) && int.TryParse(Semester, out sem)) {
+            int.TryParse(Year, out year) && int.TryParse(Semester, out sem))
+            {
                 try
                 {
                     using (DataContext dbcontext = context)
                     {
                         studentMiniDataList = (from stu in dbcontext.Students
-                                                          join m in dbcontext.Marks
-                                                          on stu.Id equals m.StudentId
-                                                          join sub in dbcontext.Subject on m.SubjectId equals sub.Id
-                                                          join std in dbcontext.Standard on m.StandardId equals std.Id
-                                                          where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department && std.Sem == sem && stu.Section== Section
-                                               group new {m,stu,std,sub} by stu.Hallticket into joined
-                                                          select new StudentMiniData
-                                                          { 
-                                                              HallTicket = joined.Key.ToString(),
-                                                              Average = joined.Average(x=> x.m.GradePoint),
-                                                              NoOfBacklogs = joined.Count(x => x.m.Grade == "F"),
-                                                              NAAC = joined.Min(x=> x.stu.NAAC)
-                                                          
-                                                      }).ToList<StudentMiniData>();
+                                               join m in dbcontext.Marks
+                                               on stu.Id equals m.StudentId
+                                               join sub in dbcontext.Subject on m.SubjectId equals sub.Id
+                                               join std in dbcontext.Standard on m.StandardId equals std.Id
+                                               where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department && std.Sem == sem && stu.Section == Section
+                                               group new { m, stu, std, sub } by stu.Hallticket into joined
+                                               select new StudentMiniData
+                                               {
+                                                   HallTicket = joined.Key.ToString(),
+                                                   Average = joined.Average(x => x.m.GradePoint),
+                                                   NoOfBacklogs = joined.Count(x => x.m.Grade == "F"),
+                                                   NAAC = joined.Min(x => x.stu.NAAC)
+
+                                               }).ToList<StudentMiniData>();
 
                     }
                 }
@@ -135,34 +140,34 @@ namespace MarksManagementSystem.Controllers
 
         // GET api/values
         [HttpGet("GetSubject")]
-        public ActionResult GetSubject(string YearOfJoining, string Department, string Year, string Semester, string Section,string SubjectName)
+        public ActionResult GetSubject(string YearOfJoining, string Department, string Year, string Semester, string Section, string SubjectName)
         {
             SubjectData subjectData = new SubjectData();
-          //  List<SubjectDataPerSem> subjectDataPerSem = new List<SubjectDataPerSem>();
+            //  List<SubjectDataPerSem> subjectDataPerSem = new List<SubjectDataPerSem>();
             int yoj;
             int year;
             int sem;
             if (int.TryParse(YearOfJoining, out yoj) &&
-            int.TryParse(Year, out year) && int.TryParse(Semester, out sem) )
+            int.TryParse(Year, out year) && int.TryParse(Semester, out sem))
             {
                 try
                 {
                     using (DataContext dbcontext = context)
                     {
                         List<SubjectDataPerSem> subjectDataPerSem = (from stu in dbcontext.Students
-                                               join m in dbcontext.Marks
-                                               on stu.Id equals m.StudentId
-                                               join sub in dbcontext.Subject on m.SubjectId equals sub.Id
-                                               join std in dbcontext.Standard on m.StandardId equals std.Id
-                                               where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department && std.Sem == sem && stu.Section == Section && sub.Name== SubjectName
+                                                                     join m in dbcontext.Marks
+                                                                     on stu.Id equals m.StudentId
+                                                                     join sub in dbcontext.Subject on m.SubjectId equals sub.Id
+                                                                     join std in dbcontext.Standard on m.StandardId equals std.Id
+                                                                     where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department && std.Sem == sem && stu.Section == Section && sub.Name == SubjectName
                                                                      group new { m, stu, std, sub } by stu.Hallticket into joined
-                                               select new SubjectDataPerSem
-                                               {
-                                                   HallTicket = joined.Min(x=>x.stu.Hallticket),
-                                                   GradeInSubject = joined.Min(x=>x.m.Grade),
-                                                   GradePointInSubject = joined.Min(x => x.m.GradePoint),
+                                                                     select new SubjectDataPerSem
+                                                                     {
+                                                                         HallTicket = joined.Min(x => x.stu.Hallticket),
+                                                                         GradeInSubject = joined.Min(x => x.m.Grade),
+                                                                         GradePointInSubject = joined.Min(x => x.m.GradePoint),
 
-                                               }).ToList<SubjectDataPerSem>();
+                                                                     }).ToList<SubjectDataPerSem>();
 
                         if (subjectDataPerSem.Count() > 0)
                         {
@@ -184,7 +189,7 @@ namespace MarksManagementSystem.Controllers
 
 
         [HttpGet("GetDepartment")]
-        public ActionResult GetDepartment(string YearOfJoining, string Department, string Year, string Semester )
+        public ActionResult GetDepartment(string YearOfJoining, string Department, string Year, string Semester)
         {
             bool accessNotAllowed =
                 String.Equals(Request.Headers.First(x => x.Key == "Authorization").Value, "unauth");
@@ -197,7 +202,7 @@ namespace MarksManagementSystem.Controllers
             int year;
             int sem;
             if (int.TryParse(YearOfJoining, out yoj) &&
-            int.TryParse(Year, out year) && int.TryParse(Semester, out sem) )
+            int.TryParse(Year, out year) && int.TryParse(Semester, out sem))
             {
                 try
                 {
@@ -214,13 +219,13 @@ namespace MarksManagementSystem.Controllers
                                               select new DepartmentData
                                               {
                                                   Section = int.Parse(joined.Key),
-                                                    Average = joined.Average(x => x.m.GradePoint),
-                                                  
+                                                  Average = joined.Average(x => x.m.GradePoint),
 
-                                               }).ToList<DepartmentData>();
-                       
+
+                                              }).ToList<DepartmentData>();
+
                     }
-                   
+
                 }
                 catch (Exception ex)
                 {
@@ -234,6 +239,41 @@ namespace MarksManagementSystem.Controllers
         [HttpGet("AddSubject")]
         public ActionResult AddSubject(string Department, string Year, string Semester, string SubjectName)
         {
+            string SubjectCode = "ABC";
+            int year;
+            int sem;
+            if (int.TryParse(Year, out year) && int.TryParse(Semester, out sem))
+            {
+                try
+                {
+                    using (DataContext _context = context)
+                    {
+                        Standard _std = (from s in _context.Standard
+                                         where s.Year == year && s.Sem == sem
+                                         select s).FirstOrDefault();
+                        if (_std != null)
+                        {
+                            int stdId = _std.Id;
+                            _context.Subject.Add(new Subject()
+                            {
+                                Name = SubjectName,
+                                Code = SubjectCode,
+                                StandardId = stdId
+                            });
+                            _context.SaveChanges();
+                            return Ok(new { success = true, mess = "Successfully updated data" });
+                        }
+                        else {
+                            return Ok(new { success = false, mess = "Year and Sem info is not present. Please update appropriately" });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return Ok(new { success= false , mess = ex.Message });
+                }
+                return null;
+            }
             return null;
         }
 
