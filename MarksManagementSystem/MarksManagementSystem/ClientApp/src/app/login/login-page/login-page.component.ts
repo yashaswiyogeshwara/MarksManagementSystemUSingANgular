@@ -14,9 +14,7 @@ export class LoginPageComponent implements OnInit {
   employeeForm:FormGroup;
   ErrorMessage: string;
   constructor(public router: Router, public loginService: LoginService, public requestService: RequestService) {
-    if (requestService.getAuthorizationToken() != null) {
-      this.router.navigate(['Dashboard']);
-    }
+    this.requestService.setAuthorizationToken("unauth");
    }
 
   ngOnInit() {

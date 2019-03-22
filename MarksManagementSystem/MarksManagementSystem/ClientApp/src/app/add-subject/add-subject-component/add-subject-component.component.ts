@@ -17,6 +17,7 @@ export class AddSubjectComponentComponent implements OnInit {
       Year:new FormControl,
       Semester:new FormControl,
       SubjectName:new FormControl,
+      SubjectCode:new FormControl,
     });
   }
 
@@ -25,7 +26,7 @@ public  AddSubject():void{
   let me = this;
 console.log(this.AddSubjectForm);
 if(me.AddSubjectForm.value){
-this.addSubjectServicesService.addSubject(this.AddSubjectForm.get('Department').value,this.AddSubjectForm.get('Year').value,this.AddSubjectForm.get('Semester').value,this.AddSubjectForm.get('SubjectName').value).subscribe((data) => {
+this.addSubjectServicesService.addSubject(this.AddSubjectForm.get('Department').value,this.AddSubjectForm.get('Year').value,this.AddSubjectForm.get('Semester').value,this.AddSubjectForm.get('SubjectName').value,this.AddSubjectForm.get('SubjectCode').value).subscribe((data) => {
 });
 }
 }

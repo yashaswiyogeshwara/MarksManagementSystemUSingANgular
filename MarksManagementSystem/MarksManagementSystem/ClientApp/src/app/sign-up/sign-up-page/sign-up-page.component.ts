@@ -28,7 +28,12 @@ export class SignUpPageComponent implements OnInit {
   
   public onSubmit(): void{
     debugger;
+    
     const me = this;
+    if(this.SignupForm.get('IsAdmin').value==null){
+      this.SignupForm.controls['IsAdmin'].setValue(false);
+    }
+    
    this.singUpService.RegisterUser(this.SignupForm.value).subscribe((data)=>{
     if(data['success']){
       me.ErrorMessage = null;
