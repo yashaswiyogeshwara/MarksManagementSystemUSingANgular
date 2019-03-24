@@ -17,6 +17,9 @@ namespace MarksManagementSystem.Models
         public string HallTicket { get; set; }
         public string GradeInSubject { get; set; }
         public int GradePointInSubject { get; set; }
+
+        public int NAAC { get; set; }
+        public string SubjectName { get; set; }
     }
 
 }

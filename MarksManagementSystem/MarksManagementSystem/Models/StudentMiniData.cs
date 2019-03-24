@@ -10,5 +10,7 @@ namespace MarksManagementSystem.Models
         public double Average { get; set; }
         public int NoOfBacklogs { get; set; }
         public int NAAC { get; set; }
+        public string Grade { get; set; }
+        public int GradePoint { get; set; }
     }
 }

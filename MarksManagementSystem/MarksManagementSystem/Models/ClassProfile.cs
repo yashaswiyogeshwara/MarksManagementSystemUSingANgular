@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace MarksManagementSystem.Models
 {
     public class ClassProfile
@@ -11,5 +13,6 @@ namespace MarksManagementSystem.Models
         public int NoOfBacklogs { get; set; }
         public int NAAC { get; set; }
 
+        public List<StudentMarks> StudentMarks { get; set; }
     }
 }
