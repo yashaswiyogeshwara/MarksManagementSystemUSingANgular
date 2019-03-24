@@ -1,25 +1,24 @@
 ﻿<Properties StartupConfiguration="{A3020CA2-AF69-466B-867F-A6B596A842CC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/Controllers/ValuesController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarksManagementSystem/ClientApp/src/app/class/class.component.html">
     <Files>
       <File FileName="MarksManagementSystem/ClientApp/src/app/class/class.component.html" Line="1" Column="1" />
       <File FileName="MarksManagementSystem/Controllers/SampleDataController.cs" Line="1" Column="1" />
-      <File FileName="MarksManagementSystem/Controllers/ValuesController.cs" Line="27" Column="40" />
+      <File FileName="MarksManagementSystem/Controllers/ValuesController.cs" Line="1" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/add-subject/add-subject-component/add-subject-component.component.ts" Line="17" Column="28" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/add/add-marks/add-marks.component.ts" Line="37" Column="49" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/add/add-student/add-student.component.ts" Line="38" Column="47" />
+      <File FileName="MarksManagementSystem/Controllers/ExcelDataController.cs" Line="33" Column="1" />
+      <File FileName="MarksManagementSystem/Controllers/MarksExcelData.cs" Line="42" Column="1" />
+      <File FileName="MarksManagementSystem/Controllers/ClassProfile.cs" Line="1" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/add-subject/add-subject-component/add-subject-component.component.html" Line="1" Column="1" />
+      <File FileName="MarksManagementSystem/ClientApp/src/app/class/class.component.css" Line="175" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.MarksManagementSystem PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="32" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="42" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="41" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="40" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/ExcelDataController.cs" relfile="MarksManagementSystem/Controllers/ExcelDataController.cs" line="32" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="150" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="153" column="1" />
-      <Breakpoint file="/Users/rajeev/Documents/GitHub/MarksManagementSystemUSingANgular/MarksManagementSystem/MarksManagementSystem/Controllers/MarksExcelData.cs" relfile="MarksManagementSystem/Controllers/MarksExcelData.cs" line="126" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

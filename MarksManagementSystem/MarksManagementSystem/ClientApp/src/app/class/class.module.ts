@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { ClassRoutingModule } from './class-routing.module';
 import { ClassComponent } from './class.component';
 import {MatTableModule} from '@angular/material/table';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { SubjectComponentComponent } from './subject-component/subject-component.component'; 
 
 
 
 @NgModule({
-  declarations: [ClassComponent],
+  declarations: [ClassComponent, SubjectComponentComponent],
   imports: [
     CommonModule,
     ClassRoutingModule,

@@ -1,0 +1,211 @@
+
+
+
+table {
+    position: absolute;
+    top:500px;
+    left: 173px;
+    width: 76%;
+
+  }
+  .tableHead{
+      background:rgb(7, 170, 235);
+      color: aliceblue;
+      font-family: Courier New Lucida Console;
+      font-size: 20px;
+       
+  }
+  .tabledata{
+    background:grey;
+    color: aliceblue;
+    font-family: Courier New Lucida Console;
+   
+     
+  }
+.YearOfJoiningtext{
+    position:absolute;
+    top:250px;
+    left: 50px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+    
+  }
+.YearOfJoiningtextBox{
+    position: absolute;
+     height: 30px;
+     width: 70px;
+     border-radius: 10px;
+     left: 100px;
+    background:white;
+    color: rgb(7, 170, 235);
+    font-size: 20px;
+    top:300px;
+    text-align: center;
+}
+
+.Departmenttext{
+    position:absolute;
+    top:250px;
+    left: 300px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+
+}
+.DepartmenttextBox{
+    position: absolute;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    left:325px;
+   background:white;
+   color: rgb(7, 170, 235);
+   font-size: 20px;
+   top:300px;   
+   text-align: center;
+}
+.Yeartext{
+    position:absolute;
+    top:250px;
+    left: 510px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+}
+.YeartextBox{
+    position: absolute;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    left:500px;
+   background:white;
+   color: rgb(7, 170, 235);
+   font-size: 20px;
+   top:300px;  
+   text-align: center; 
+}
+.Semestertext{
+    position:absolute;
+    top:250px;
+    left: 625px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+}
+.SemestertextBox{
+    position: absolute;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    left:650px;
+   background:white;
+   color: rgb(7, 170, 235);
+   font-size: 20px;
+   top:300px;  
+   text-align: center; 
+}
+
+.Sectiontext{
+    position:absolute;
+    top:250px;
+    left: 800px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+}
+.SectiontextBox{
+    position: absolute;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    left:800px;
+   background:white;
+   color: rgb(7, 170, 235);
+   font-size: 20px;
+   top:300px; 
+   text-align: center;  
+}
+
+.SubjectNametext{
+
+    position:absolute;
+    top:250px;
+    left: 1000px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+}
+.SubjectNametextBox{
+    position: absolute;
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    left:975px;
+   background:white;
+   color: rgb(7, 170, 235);
+   font-size: 20px;
+   top:300px; 
+   text-align: center;  
+}
+.SubjectText{
+    position:absolute;
+  top:80px;
+  left: 50px;
+  font-size: 100px;
+  color: white; 
+  font-family: Courier New Lucida Console;
+  
+}
+
+.SubjectButton{
+    position:absolute;
+    top:400px;
+    left: 500px;
+    height:50px ;
+    width: 100px;
+    background:  white;
+    font-size: 20px;
+    color: rgb(7, 170, 235);
+    border-radius: 10px;
+
+}
+.BacklogstButton{
+ 
+    position:absolute;
+    top:400px;
+    left: 700px;
+    height:50px ;
+    width: 100px;
+    background:  white;
+    font-size: 20px;
+    color: rgb(7, 170, 235);
+    border-radius: 10px;
+}
+
+
+.Homeheadder{
+    position:absolute;
+    top:50px;
+  left:1000px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+  
+  }
+  .AddStudentheadder{
+    position:absolute;
+    top:50px;
+  left:1100px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+  }
+  .Logoutheadder{
+    position:absolute;
+    top:50px;
+  left:1300px;
+    font-size: 30px;
+    color: white; 
+    font-family: Courier New Lucida Console;
+  }

@@ -34,6 +34,8 @@ export class AddStudentComponent implements OnInit {
          if (response.mess) {
            this.Message = response.mess;
          }
+       }else{
+       alert("Successfully added marks data");
        }
       console.log('set any success actions...');
       return response;
