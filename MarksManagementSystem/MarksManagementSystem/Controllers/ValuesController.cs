@@ -98,7 +98,7 @@ namespace MarksManagementSystem.Controllers
                 return Ok(new { success = false, mess = "Not authenticated" });
             }
 
-            List<StudentMiniData> studentMiniDataList = new List<StudentMiniData>();
+            List<ClassProfile> classProfile = new List<ClassProfile>();
 
             int yoj;
             int year;
@@ -110,22 +110,64 @@ namespace MarksManagementSystem.Controllers
                 {
                     using (DataContext dbcontext = context)
                     {
-                        studentMiniDataList = (from stu in dbcontext.Students
+                        //studentMiniDataList = (from stu in dbcontext.Students
+                        //                       join m in dbcontext.Marks
+                        //                       on stu.Id equals m.StudentId
+                        //                       join sub in dbcontext.Subject on m.SubjectId equals sub.Id
+                        //                       join std in dbcontext.Standard on m.StandardId equals std.Id
+                        //                       where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department && std.Sem == sem && stu.Section == Section
+                        //                       group new { m, stu, std, sub } by stu.Hallticket into joined
+                        //                       select new StudentMiniData
+                        //                       {
+                        //                           HallTicket = joined.Key.ToString(),
+                        //                           Average = joined.Average(x => x.m.GradePoint),
+                        //                           NoOfBacklogs = joined.Count(x => x.m.Grade == "F"),
+                        //                           NAAC = joined.Min(x => x.stu.NAAC)
+
+                        //                       }).ToList<StudentMiniData>();
+                        List<SubjectDataPerSem> studentMarksList = (from stu in dbcontext.Students
                                                join m in dbcontext.Marks
                                                on stu.Id equals m.StudentId
                                                join sub in dbcontext.Subject on m.SubjectId equals sub.Id
                                                join std in dbcontext.Standard on m.StandardId equals std.Id
                                                where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department && std.Sem == sem && stu.Section == Section
-                                               group new { m, stu, std, sub } by stu.Hallticket into joined
-                                               select new StudentMiniData
+                                               orderby stu.Hallticket, sub.Name
+                                               select new SubjectDataPerSem
                                                {
-                                                   HallTicket = joined.Key.ToString(),
-                                                   Average = joined.Average(x => x.m.GradePoint),
-                                                   NoOfBacklogs = joined.Count(x => x.m.Grade == "F"),
-                                                   NAAC = joined.Min(x => x.stu.NAAC)
+                                                   HallTicket = stu.Hallticket,
+                                                   GradeInSubject = m.Grade,
+                                                   GradePointInSubject = m.GradePoint,
+                                                   NAAC = stu.NAAC,
+                                                   SubjectName = sub.Name
+                                                   
+                                                  
+                                               }).ToList<SubjectDataPerSem>();
 
-                                               }).ToList<StudentMiniData>();
+                        studentMarksList.ForEach(x =>
+                        {
+                            ClassProfile prof = classProfile.FirstOrDefault((y)=> y.HallTicket == x.HallTicket);
+                            if (prof != null)
+                            {
+                                prof.StudentMarks.Add(new StudentMarks
+                                {
+                                    SubjectName = x.SubjectName,
+                                    Grade = x.GradeInSubject,
+                                    GradePoint = x.GradePointInSubject
+                                });
+                            }
+                            else {
+                                classProfile.Add(new ClassProfile() {
+                                    HallTicket = x.HallTicket,
+                                    StudentMarks = new List<StudentMarks>()
+                                });
+                            }
+                        });
 
+                        classProfile.ForEach(x =>
+                        {
+                            x.Average = x.StudentMarks.Average((z) => z.GradePoint );
+                            x.NAAC = x.NAAC;
+                        });
                     }
                 }
                 catch (Exception ex)
@@ -134,7 +176,7 @@ namespace MarksManagementSystem.Controllers
                 }
             }
 
-            return Ok(new { data = studentMiniDataList });
+            return Ok(new { data = classProfile });
         }
 
 
