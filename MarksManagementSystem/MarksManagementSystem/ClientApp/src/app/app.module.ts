@@ -27,6 +27,7 @@ import {MatTableModule} from '@angular/material/table';
 
 import{AddSubjectModule} from './add-subject/add-subject.module';
 import{AddSubjectComponentComponent} from'./add-subject/add-subject-component/add-subject-component.component';
+import{SubjectComponentComponent} from './class/subject-component/subject-component.component'
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonInterceptor } from './Common-Interceptor';
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path:'Class',component:ClassComponent},
     {path:'Department',component:DepartmentComponentComponent},
 {path:'AddSubject',component:AddSubjectComponentComponent},  
+{path:'SubjectDetails',component:SubjectComponentComponent}
   
 ];
 

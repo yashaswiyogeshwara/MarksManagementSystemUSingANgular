@@ -33,6 +33,8 @@ export class AddMarksComponent implements OnInit {
          if (response.mess) {
            this.Message = response.mess;
          }
+       }else{
+       alert("successfully added student data");
        }
       console.log('set any success actions...');
       return response;

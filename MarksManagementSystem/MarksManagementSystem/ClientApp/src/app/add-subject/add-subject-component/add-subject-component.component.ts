@@ -27,6 +27,14 @@ public  AddSubject():void{
 console.log(this.AddSubjectForm);
 if(me.AddSubjectForm.value){
 this.addSubjectServicesService.addSubject(this.AddSubjectForm.get('Department').value,this.AddSubjectForm.get('Year').value,this.AddSubjectForm.get('Semester').value,this.AddSubjectForm.get('SubjectName').value,this.AddSubjectForm.get('SubjectCode').value).subscribe((data) => {
+if(data.success==true)
+{
+  alert("Succesful added data");
+}
+else
+{
+  alert("data not entered");
+}
 });
 }
 }

@@ -230,6 +230,55 @@ namespace MarksManagementSystem.Controllers
         }
 
 
+        [HttpGet("GetSubjectBacklogs")]
+        public ActionResult GetSubjectBacklogs(string YearOfJoining, string Department, string Year, string Semester, string Section, string SubjectName)
+        {
+            SubjectData subjectData = new SubjectData();
+            //  List<SubjectDataPerSem> subjectDataPerSem = new List<SubjectDataPerSem>();
+            int yoj;
+            int year;
+            int sem;
+            if (int.TryParse(YearOfJoining, out yoj) &&
+            int.TryParse(Year, out year) && int.TryParse(Semester, out sem))
+            {
+                try
+                {
+                    using (DataContext dbcontext = context)
+                    {
+                        List<SubjectDataPerSem> subjectDataPerSem = (from stu in dbcontext.Students
+                                                                     join m in dbcontext.Marks
+                                                                     on stu.Id equals m.StudentId
+                                                                     join sub in dbcontext.Subject on m.SubjectId equals sub.Id
+                                                                     join std in dbcontext.Standard on m.StandardId equals std.Id
+                                                                     where stu.Yearofjoin == yoj && std.Year == year && stu.Dept == Department && std.Sem == sem && stu.Section == Section && sub.Name == SubjectName && m.Grade.ToLower() =="f"
+                                                                     group new { m, stu, std, sub } by stu.Hallticket into joined
+                                                                     select new SubjectDataPerSem
+                                                                     {
+                                                                         HallTicket = joined.Min(x => x.stu.Hallticket),
+                                                                         GradeInSubject = joined.Min(x => x.m.Grade),
+                                                                         GradePointInSubject = joined.Min(x => x.m.GradePoint),
+
+                                                                     }).ToList<SubjectDataPerSem>();
+
+                        if (subjectDataPerSem.Count() > 0)
+                        {
+                            double TotalAverage = subjectDataPerSem.Average((x) => x.GradePointInSubject);
+                            subjectData.TotalAverage = TotalAverage;
+                            subjectData.subjectDataPerSem = subjectDataPerSem;
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    return Ok(new { mess = ex.Message });
+                }
+            }
+
+            return Ok(new { data = subjectData });
+        }
+
+
         [HttpGet("GetDepartment")]
         public ActionResult GetDepartment(string YearOfJoining, string Department, string Year, string Semester)
         {

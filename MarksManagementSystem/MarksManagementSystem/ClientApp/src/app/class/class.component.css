@@ -172,12 +172,11 @@ table {
 
 
 .Totalaverage{
-    
+    position: relative;
     width: 76%;
   background:grey;
   color: aliceblue;
   font-family: Courier New Lucida Console;
-  height: 30px;
   left: 173px;
   font-size: 25px;
   text-align: center;

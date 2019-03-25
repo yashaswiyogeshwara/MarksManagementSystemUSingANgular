@@ -53,19 +53,6 @@ Message: string;
       });
     }
 
-    else{
-      this.classServicesService.getSubject( this.ClassForm.get('YearOfJoining').value,this.ClassForm.get('Department').value,this.ClassForm.get('Year').value,this.ClassForm.get('Semester').value,this.ClassForm.get('Section').value,this.ClassForm.get('SubjectName').value).subscribe((data) => {
-        if (data && data.data) {
-          console.log(data);
-        me.subjectDataProfile=data.data;
-        console.log( me.subjectDataProfile);
-          me.Message = null;
-         
-        } else {
-          me.Message = "This Student does not have any Marks data, please verify the Hallticket and Renter";
-        }
-      });
-    }
   }
  
 }
