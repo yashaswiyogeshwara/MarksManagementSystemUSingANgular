@@ -150,16 +150,26 @@ namespace MarksManagementSystem.Controllers
                             {
                                 prof.StudentMarks.Add(new StudentMarks
                                 {
+                                    Hallticket = x.HallTicket,
                                     SubjectName = x.SubjectName,
                                     Grade = x.GradeInSubject,
                                     GradePoint = x.GradePointInSubject
                                 });
                             }
                             else {
-                                classProfile.Add(new ClassProfile() {
+                                ClassProfile cp = new ClassProfile()
+                                {
                                     HallTicket = x.HallTicket,
                                     StudentMarks = new List<StudentMarks>()
+                                };
+                                cp.StudentMarks.Add(new StudentMarks {
+
+                                    Hallticket = x.HallTicket,
+                                    SubjectName = x.SubjectName,
+                                    Grade = x.GradeInSubject,
+                                    GradePoint = x.GradePointInSubject
                                 });
+                                classProfile.Add(cp);
                             }
                         });
 
